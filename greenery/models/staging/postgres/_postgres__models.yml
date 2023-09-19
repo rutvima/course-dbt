@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_postgres__addresses
+    description: Info about address, zipcode, state and country.
+  - name: stg_postgres__events
+    description: Info about users' events on the platform.
+  - name: stg_postgres__orders
+    description: Details about orders.
+  - name: stg_postgres__order_items
+    description: Details about quantity of products included in each order.
+  - name: stg_postgres__products
+    description: Info about individual products.
+  - name: stg_postgres__promos
+    description: Info about promos applied to orders.
+  - name: stg_postgres__users
+    description: General info about the user.
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+	
