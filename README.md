@@ -1,5 +1,5 @@
 # Analytics engineering with dbt
-Week 2 - Answers to questions
+***Week 2 - Answers to questions***
 
 > What is our user repeat rate? 79.8%
 
@@ -46,7 +46,7 @@ Also I created some tests for ensuring positive values in user_order_count and o
 Four products had their inventory changed: Pothos, Philodendron, Monstera and String of pearls.
 
 
-Week 1 - Answers to questions
+***Week 1 - Answers to questions***
 
 > How many users do we have? 130
 
