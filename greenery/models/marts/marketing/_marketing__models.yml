@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: fact_user_orders
+    columns:
+      - name: user_id
+        description: Identifier of the users on the platform
+        tests:
+          - unique
+          - not_null
+      - name: user_order_count
+        tests:  
+          - positive_values

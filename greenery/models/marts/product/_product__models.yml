@@ -1,0 +1,12 @@
+version: 2
+
+models:
+
+  - name: fact_page_views
+    columns:
+      - name: product_id
+        description: Identifier of the products on the platform
+        tests:
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
