@@ -1,4 +1,38 @@
 # Analytics engineering with dbt
+Week 2 - Answers to questions
+
+> What is our user repeat rate? 79.8%
+
+```sql
+with order_per_user as (
+    select 
+        user_id
+        , count(distinct order_id) as order_count
+    from stg_postgres__orders
+    group by 1
+)
+, order_range as (
+    select 
+        user_id
+        , (case when order_count=1 then 1 else 0 end) as one_order
+        , (case when order_count>1 then 1 else 0 end) as more_one_order
+    from order_per_user
+)
+
+select round(sum(more_one_order) / count(distinct user_id),3) 
+from order_range 
+```
+> What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again?
+
+Good indicators of users who are more likely to purchase:
+* High repeat rate
+* Recency: days after the last order (If they made an order recently, the likelihood of them making another order is high).
+* High quality experience: no issues with the order, receive the order without delay, etc.
+* Have promo discounts
+
+> Explain the product mart models you added. Why did you organize the models in the way you did?
+There are 3 marts: product, core, marketing.
+* *Core*: I have created two dimensions: users and products
 
 Week 1 - Answers to questions
 
