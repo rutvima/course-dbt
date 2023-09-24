@@ -32,7 +32,19 @@ Good indicators of users who are more likely to purchase:
 
 > Explain the product mart models you added. Why did you organize the models in the way you did?
 There are 3 marts: product, core, marketing.
-* *Core*: I have created two dimensions: users and products
+* *Core*: I have created two dimensions (users and products) and one fact table (fact_order). I have created an intermediate table "int_orders" to calculate the number of products included in each order. This intermediate table is used to create the fact_orders table.
+* *Marketing: The fact_user_orders used the intermediate table "int_orders" and calculates several metrics such as how many orders each user made, total amount, etc.
+* *Product: I have created two intermediate tables: int_product_session (aggregations of number of events, sessions, etc. per product and day) and int_product_orders (aggregations of number of orders, quantity, etc. per product and day). These two tables are joined to created the fact table fact_page_views to analyze how different products perform.
+
+> Tests performed.
+
+The main tests performed have been for uniqueness and not being null in the primary keys.
+Also I created some tests for ensuring positive values in user_order_count and order_total and for referential integrity in product_id with dim_products.
+
+> Snapshot. Which products had their inventory change from week 1 to week 2? 
+
+Four products had their inventory changed: Pothos, Philodendron, Monstera and String of pearls.
+
 
 Week 1 - Answers to questions
 
