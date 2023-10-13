@@ -1,4 +1,50 @@
 # Analytics engineering with dbt
+
+***Week 3 - Answers to questions***
+> What is our overall conversion rate? 62.46%
+
+```sql
+select 
+     sum(conversion)*100 / count(session_id) as conversion_rate
+from int_session_conversions
+```
+> What is our conversion rate by product?
+
+```sql
+with page_view as (
+    select 
+        product_id
+        , count(distinct session_id) as num_views
+    from fact_product_conversion
+    where page_views>=1
+    group by 1
+)
+, conversion_prod as (
+    select 
+        product_id
+        , count(distinct session_id) as num_conv
+    from fact_product_conversion
+    where add_to_carts>=1 and conversion=1
+    group by 1
+)
+select 
+    p.product_id
+    , dp.product_name
+    , coalesce(num_conv,0)*100/num_views as rate_conv
+from page_view p
+inner join dim_products dp on dp.product_id=p.product_id
+left join conversion_prod c on c.product_id=p.product_id
+```
+
+> Create a macro to simplify part of a model: Two macros have been created: event_type and grant
+
+> Add a post hook to your project to apply grants to the role “reporting”: Done
+
+> Install a package (i.e. dbt-utils, dbt-expectations) and apply one or more of the macros to your project: apply dbt-utils in event_type macro
+
+> Snapshot. Done
+
+
 ***Week 2 - Answers to questions***
 
 > What is our user repeat rate? 79.8%
