@@ -10,3 +10,7 @@ models:
           - relationships:
               to: ref('dim_products')
               field: product_id
+  - name: fact_product_conversion
+    columns:
+      - name: product_id
+        description: Identifier of the products on the platform
