@@ -11,7 +11,7 @@ select
     s.session_id,
     page_views,
     add_to_carts,
-    conversion            
+    c.conversion
 from int_sessions s
 left join int_conversion c on c.session_id=s.session_id
 where product_id is not null
