@@ -1,5 +1,15 @@
 # Analytics engineering with dbt
 
+Over four weeks, you’ll immerse yourself in the modern analytics stack with a focus on dbt as your primary transformation tool. 
+- In **Week 1**, you’ll explore the components of the analytics workflow—data ingestion, warehousing and the role of version control—while getting hands‑on with dbt’s architecture.
+- **Week 2** dives into core dbt fundamentals: writing modular models, configuring sources, defining tests, and leveraging macros to enforce consistency.
+- In **Week 3**, you’ll master documentation, lineage graphs and quality gates, learning to build clear docs and automated CI checks.
+- **Week 4** brings it all together as you deploy your project, integrate with CI/CD pipelines, and collaborate using branching strategies and production monitoring.
+
+By building a working dbt project from scratch, you’ll gain practical expertise in SQL‑based transformations, model layering and data testing—skills that drastically reduce debugging time and improve data reliability. You’ll become proficient at crafting reusable analytics code, generating living documentation and automating your pipeline’s quality checks. These capabilities empower Analytics Engineers and data professionals to deliver scalable, maintainable data models, foster cross‑team collaboration and accelerate time to insights, making you an indispensable asset in any data‑driven organization.  
+
+******************************************************************************************************************************************************************************
+
 ***Week 3 - Answers to questions***
 > What is our overall conversion rate? 62.46%
 
